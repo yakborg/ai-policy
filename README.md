@@ -13,6 +13,9 @@ rules/
 └── mcp.md         # MCP サーバー管理
 agents/
 └── orchestrator.md # Orchestrator 固有ルール
+commands/
+├── mcp-reinstall.md # /mcp-reinstall スキル
+└── new-project.md   # /new-project スキル
 ```
 
 ## シンボリックリンク
@@ -20,6 +23,7 @@ agents/
 ```bash
 ~/.claude/CLAUDE.md  → ~/ai-policy/CLAUDE.md
 ~/.claude/agents/    → ~/ai-policy/agents/
+~/.claude/commands/  → ~/ai-policy/commands/
 ~/.gemini/GEMINI.md  → ~/ai-policy/GEMINI.md
 ```
 
@@ -28,9 +32,10 @@ agents/
 ```bash
 git clone git@github.com:yakborg/ai-policy.git ~/ai-policy
 
-ln -sf ~/ai-policy/CLAUDE.md ~/.claude/CLAUDE.md
-ln -sf ~/ai-policy/agents    ~/.claude/agents
-ln -sf ~/ai-policy/GEMINI.md ~/.gemini/GEMINI.md
+ln -sf ~/ai-policy/CLAUDE.md  ~/.claude/CLAUDE.md
+ln -sf ~/ai-policy/agents     ~/.claude/agents
+ln -sf ~/ai-policy/commands   ~/.claude/commands
+ln -sf ~/ai-policy/GEMINI.md  ~/.gemini/GEMINI.md
 ```
 
 ## よく行う作業
@@ -41,6 +46,7 @@ ln -sf ~/ai-policy/GEMINI.md ~/.gemini/GEMINI.md
 | 安全ルール・Claude Code 固有ルールの変更 | `rules/safety.md` |
 | MCP サーバーの追加・変更 | `rules/mcp.md` |
 | Orchestrator ルールの変更 | `agents/orchestrator.md` |
+| スキルの追加・変更 | `commands/` 以下 |
 | エントリポイントの変更 | `CLAUDE.md` / `GEMINI.md` |
 
 ## 編集上の注意
