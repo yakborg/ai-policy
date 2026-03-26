@@ -7,5 +7,20 @@ trust_level = "trusted"
 [projects."/home/noda/ai-policy"]
 trust_level = "trusted"
 
+[mcp_servers.google-analytics]
+command = "/home/noda/dev/google-analytics-mcp/.venv/bin/analytics-mcp"
+args = []
+
+[mcp_servers.chatwork]
+command = "/home/noda/.local/share/mise/installs/deno/2.7.8/bin/deno"
+args = ["run", "--allow-net", "--allow-env", "/home/noda/dev/chatwork-tools/src/mcp/server.ts"]
+
+[mcp_servers.chatwork.env]
+CHATWORK_API_TOKEN = "6a3abd1221de047992b3ffea4dd93812"
+
+[mcp_servers.claude-code]
+command = "/home/noda/.local/bin/claude"
+args = ["mcp", "serve"]
+
 [notice.model_migrations]
 "gpt-5.3-codex" = "gpt-5.4"
