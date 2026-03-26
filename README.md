@@ -1,34 +1,50 @@
 # ai-policy
 
-Claude Code / Gemini CLI / Copilot などの
-AIエージェントに対する振る舞いポリシーを管理するリポジトリ。
+Claude Code / Gemini CLI などの AI エージェントに対する振る舞いポリシーを管理するリポジトリ。
 
 ## 構成
 
 ```
-policy/
-├── global.md                 # 全AI共通ルール
-├── master/
-│   ├── 00-principles.md      # シェル・ランタイム・基本方針
-│   ├── 10-platform-wsl.md    # WSL固有ルール
-│   └── 20-safety.md          # 安全ルール・禁止操作
-└── agents/
-    ├── claude-code.md
-    ├── gemini-cli.md
-    └── copilot.md
+CLAUDE.md          # Claude Code エントリポイント（最小限・常時読み込み）
+GEMINI.md          # Gemini CLI エントリポイント（最小限・常時読み込み）
+rules/
+├── environment.md # 環境構成（WSL・mise・シェル）
+├── safety.md      # 安全ルール・Claude Code 固有ルール
+└── mcp.md         # MCP サーバー管理
+agents/
+└── orchestrator.md # Orchestrator 固有ルール
+```
 
-CLAUDE.md      # Claude Code エントリポイント
-GEMINI.md      # Gemini CLI エントリポイント
-templates/     # 新規プロジェクト用 CLAUDE.md テンプレート
+## シンボリックリンク
+
+```bash
+~/.claude/CLAUDE.md  → ~/ai-policy/CLAUDE.md
+~/.claude/agents/    → ~/ai-policy/agents/
+~/.gemini/GEMINI.md  → ~/ai-policy/GEMINI.md
 ```
 
 ## セットアップ（新しいマシン）
 
 ```bash
-# リポジトリをクローン
 git clone git@github.com:yakborg/ai-policy.git ~/ai-policy
 
-# シンボリックリンクを作成
 ln -sf ~/ai-policy/CLAUDE.md ~/.claude/CLAUDE.md
+ln -sf ~/ai-policy/agents    ~/.claude/agents
 ln -sf ~/ai-policy/GEMINI.md ~/.gemini/GEMINI.md
 ```
+
+## よく行う作業
+
+| 作業 | 対象ファイル |
+|---|---|
+| 環境・ツール構成の変更 | `rules/environment.md` |
+| 安全ルール・Claude Code 固有ルールの変更 | `rules/safety.md` |
+| MCP サーバーの追加・変更 | `rules/mcp.md` |
+| Orchestrator ルールの変更 | `agents/orchestrator.md` |
+| エントリポイントの変更 | `CLAUDE.md` / `GEMINI.md` |
+
+## 編集上の注意
+
+- シンボリックリンク先ではなく、必ずリポジトリ本体（`~/ai-policy/`）を直接編集する
+- ポリシー変更は影響範囲を確認してから行う（複数エージェントに波及する場合がある）
+- `git push` は必ずユーザー確認を取ってから実行する
