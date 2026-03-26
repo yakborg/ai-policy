@@ -1,0 +1,11 @@
+[projects."/home/noda"]
+trust_level = "trusted"
+
+[projects."/home/noda/dotfiles"]
+trust_level = "trusted"
+
+[projects."/home/noda/ai-policy"]
+trust_level = "trusted"
+
+[notice.model_migrations]
+"gpt-5.3-codex" = "gpt-5.4"

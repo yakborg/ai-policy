@@ -11,6 +11,7 @@
 
 - `rules/` 配下がポリシー内容の正（source of truth）です。
 - `CLAUDE.md` と `GEMINI.md` は `rules/` を参照する薄いエントリポイントです。
+- `codex/config.toml` は Codex CLI 設定の正です。
 - `rules/` の外にポリシー内容を重複して記述しないでください。
 
 現在の構成（この構造を維持してください）：
@@ -19,6 +20,9 @@
 ai-policy/
 ├── CLAUDE.md           # Claude エントリポイント（15行以内）
 ├── GEMINI.md           # Gemini エントリポイント（15行以内）
+├── AGENTS.md           # Codex エントリポイント
+├── codex/
+│   └── config.toml
 ├── rules/
 │   ├── environment.md
 │   ├── safety.md

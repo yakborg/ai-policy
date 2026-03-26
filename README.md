@@ -8,6 +8,8 @@ Claude Code / Gemini CLI などの AI エージェントに対する振る舞い
 CLAUDE.md          # Claude Code エントリポイント（最小限・常時読み込み）
 GEMINI.md          # Gemini CLI エントリポイント（最小限・常時読み込み）
 AGENTS.md          # Codex CLI エントリポイント（最小限・常時読み込み）
+codex/
+└── config.toml    # Codex CLI 設定の正
 rules/
 ├── environment.md # 環境構成（WSL・mise・シェル）
 ├── safety.md      # 安全ルール・禁止操作
@@ -27,6 +29,7 @@ commands/
 ~/.claude/commands/  → ~/ai-policy/commands/
 ~/.gemini/GEMINI.md  → ~/ai-policy/GEMINI.md
 ~/AGENTS.md          → ~/ai-policy/AGENTS.md
+~/.codex/config.toml → ~/ai-policy/codex/config.toml
 ```
 
 ## セットアップ（新しいマシン）
@@ -39,6 +42,8 @@ ln -sf ~/ai-policy/agents     ~/.claude/agents
 ln -sf ~/ai-policy/commands   ~/.claude/commands
 ln -sf ~/ai-policy/GEMINI.md  ~/.gemini/GEMINI.md
 ln -sf ~/ai-policy/AGENTS.md  ~/AGENTS.md
+mkdir -p ~/.codex
+ln -sf ~/ai-policy/codex/config.toml ~/.codex/config.toml
 ```
 
 ## よく行う作業
@@ -51,6 +56,7 @@ ln -sf ~/ai-policy/AGENTS.md  ~/AGENTS.md
 | Orchestrator ルールの変更 | `agents/orchestrator.md` |
 | スキルの追加・変更 | `commands/` 以下 |
 | エントリポイントの変更 | `CLAUDE.md` / `GEMINI.md` / `AGENTS.md` |
+| Codex CLI 設定の変更 | `codex/config.toml` |
 
 ## 編集上の注意
 
