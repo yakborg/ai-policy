@@ -61,8 +61,11 @@
 ## シークレット管理
 
 - シークレットは必ず `~/.secrets/` 以下に保存する
-- `~/.secrets/env/` — 環境変数形式（例: `export API_KEY=xxx`）
+- `~/.secrets/anthropic/` — Anthropic API キー
+- `~/.secrets/chatwork/` — Chatwork API トークン
+- `~/.secrets/meta/` — Meta API トークン
 - `~/.secrets/gcp/` — GCP サービスアカウント JSON
+- 各ディレクトリ内のファイルは `export KEY=value` 形式で統一する
 - `~/.secrets/` 以下は git 管理外・パーミッション 700/600 を維持する
 - 値を dotfiles や設定ファイルに直書きしない
 - 環境変数はパスのみ設定ファイルに記載し、値は `~/.secrets/` から読み込む
