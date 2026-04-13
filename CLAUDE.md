@@ -11,7 +11,7 @@ Windows username: `tecon` / WSL username: `noda`
 - 継続作業では `~/ai-policy/handoffs/` の対象ファイルを先に確認し、完了後は該当ファイルを削除する
 
 ## 詳細ルール（必要時に参照）
-- @rules/environment.md — 環境・ツール構成
+- @rules/environment.md — 環境・ツール構成（git push 委譲ルール含む）
 - @rules/safety.md — 安全ルール・Claude Code固有ルール
 - @rules/mcp.md — MCPサーバー管理
 - @skills/chatwork_adapter.md

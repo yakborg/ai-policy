@@ -63,3 +63,20 @@
 - シンボリックリンクは `/mnt/` 以下では動作しない場合がある
 - Windows 環境変数には依存しない（PATH は `.zshrc` で明示管理）
 - `localhost` は WSL2 内を指す（Windows 側サービスとは別）
+
+---
+
+## git push の委譲
+
+### 制約の背景
+
+Codex は MCP 経由サブプロセスとして起動するため `SSH_AUTH_SOCK` が継承されず、
+SSH 認証による `git push` が失敗する（Codex CLI 一般の仕様ではなくこの実行経路固有の制約）。
+Claude Code はターミナル起動のため `SSH_AUTH_SOCK` を継承でき、`git push` を正常に実行できる。
+
+### ルール
+
+- Codex は `git push` を自分では実行しない
+- commit 完了後、Claude Code の `Bash` ツールに `git push origin <branch>` を委譲する
+- push 結果（成功/失敗）を Codex に返し、Codex がユーザーへ報告する
+- ユーザーが「自分で push する」と明示した場合は委譲不要
