@@ -3,3 +3,7 @@
 *.swo
 .env
 .env.*
+
+# handoffs: ディレクトリのみ追跡、中身は除外
+handoffs/*
+!handoffs/.gitkeep
