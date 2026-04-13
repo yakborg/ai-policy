@@ -4,6 +4,7 @@
 .env
 .env.*
 
-# handoffs: ディレクトリのみ追跡、中身は除外
+# handoffs: README.md のみ追跡、個別ファイルは除外
 handoffs/*
 !handoffs/.gitkeep
+!handoffs/README.md
